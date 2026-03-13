@@ -50,12 +50,16 @@ class Senai {
 
 
 /* ===== FUNÇÃO DE VALIDAÇÃO ===== */
-
-
-
-
-
-
+validar(){
+  if (isNaN(inputCodigoA, inputCidadeA, inputAnoConstrucaoA, inputCursosA) || isNaN(inputCodigoB, inputCidadeB, inputAnoConstrucaoB, inputCursoB)) {
+    relatorio.style.display = "flex"
+    relatorio.innerHTML =
+    `
+    <p> Preencha todos os campos para criar a escola. </p>
+    
+    `;
+  };
+};
 
 
 /* ===== ABRIR ESCOLA ===== */
