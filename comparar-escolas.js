@@ -1,19 +1,21 @@
-const inputCidadeA = document.querySelector(".unidade__input unidadeA__cidade");
-const inputCodigoA = document.querySelector(".unidade__input unidadeA__codigo");
-const inputAnoConstrucaoA = document.querySelector(".unidade__input unidadeA__ano");
-const inputCursosA = document.querySelector(".unidade__input unidadeA__cursos");
+/* ===== OBTER ELEMENTOS ===== */
+// elementos A
+const inputCidadeA = document.querySelector('.unidadeA__cidade');
+const inputCodigoA = document.querySelector('.unidadeA__codigo');
+const inputAnoA = document.querySelector('.unidadeA__ano');
+const inputCursosA = document.querySelector('.unidadeA__cursos');
 
-const inputCidadeB = document.querySelector(".unidade__input unidadeB__cidade");
-const inputCodigoB = document.querySelector(".unidade__input unidadeB__codigo");
-const inputAnoConstrucaoB = document.querySelector(".unidade__input unidadeB__ano");
-const inputCursoB = document.querySelector(".unidade__input unidadeB__cursos");
-
+// elementos B
+const inputCidadeB = document.querySelector('.unidadeB__cidade');
+const inputCodigoB = document.querySelector('.unidadeB__codigo');
+const inputAnoB = document.querySelector('.unidadeB__ano');
+const inputCursosB = document.querySelector('.unidadeB__cursos');
 
 /* ===== INSTANCIAR ESCOLA A ===== */
-const escolaA = new Senai(inputCodigoA, inputCidadeA, inputAnoConstrucaoA, inputCursosA)
+const escolaA = new Senai(inputCodigoA, inputCidadeA, inputAnoA, inputCursosA)
 
 /* ===== INSTANCIAR ESCOLA B ===== */
-const escolaB = new Senai(inputCodigoB, inputCidadeB, inputAnoConstrucaoB, inputCursoB)
+const escolaB = new Senai(inputCodigoB, inputCidadeB, inputAnoB, inputCursosB)
 
 
 /* 🚨NÃO ALTERAR A CLASSE 🚨 */
@@ -46,12 +48,11 @@ class Senai {
 
 
 
-/* ===== OBTER ELEMENTOS ===== */
 
 
 /* ===== FUNÇÃO DE VALIDAÇÃO ===== */
 validar(){
-  if (isNaN(inputCodigoA, inputCidadeA, inputAnoConstrucaoA, inputCursosA) || isNaN(inputCodigoB, inputCidadeB, inputAnoConstrucaoB, inputCursoB)) {
+  if (isNaN(inputCodigoA, inputCidadeA, inputAnoA, inputCursosA) || isNaN(inputCodigoB, inputCidadeB, inputAnoB, inputCursosB)) {
     relatorio.style.display = "flex"
     relatorio.innerHTML =
     `
