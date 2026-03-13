@@ -11,22 +11,71 @@ const inputCodigoB = document.querySelector('.unidadeB__codigo');
 const inputAnoB = document.querySelector('.unidadeB__ano');
 const inputCursosB = document.querySelector('.unidadeB__cursos');
 
+// Selecionar os botões corretamente
+const btnAbrirEscolaA = document.getElementById("unidadeA__abrir");
+const btnFecharEscolaA = document.getElementById("unidadeA__fechar");
+const btnAbrirEscolaB = document.getElementById("unidadeB__abrir");
+const btnFecharEscolaB = document.getElementById("unidadeB__fechar");
+
+// Mensagem
+const mensagemA = document.querySelector(".unidadeA__mensagem");
+
+/* ===== FUNÇÃO DE VALIDAÇÃO ===== */
+function validarCampos(cidade, codigo, anoConstrucao, qtdeCursos) {
+  if (
+    cidade.value === "" ||
+    codigo.value === "" ||
+    anoConstrucao.value === "" ||
+    qtdeCursos.value === ""
+  ) {
+    return false;
+  }
+  return true;
+}
+
 /* ===== INSTANCIAR ESCOLA A ===== */
-const escolaA = new Senai(inputCodigoA, inputCidadeA, inputAnoA, inputCursosA)
+let escolaA;
+const instanciarA = document.getElementById("unidadeA__instanciar");
+
+instanciarA.addEventListener("click", () => {
+  if (!validarCampos(inputCidadeA, inputCodigoA, inputAnoA, inputCursosA)) {
+    mensagemA.textContent = "Preencha todos os campos para criar a escola.";
+    return;
+  }
+
+  escolaA = new Senai(
+    Number(inputCodigoA.value),
+    inputCidadeA.value,
+    Number(inputAnoA.value),
+    Number(inputCursosA.value)
+  );
+
+  mensagemA.textContent = `Escola criada em ${escolaA.cidade}!`;
+  mensagemA.className = "unidadeA__mensagem status status--criado";
+});
 
 /* ===== INSTANCIAR ESCOLA B ===== */
-const escolaB = new Senai(inputCodigoB, inputCidadeB, inputAnoB, inputCursosB)
+let escolaB;
+// Adicione lógica semelhante para instanciar a escola B, se necessário
 
-// botoes
-const btnAbrirEscolaA = document.getElementById(".unidadeA__abrir");
-const btnFecharEscolaA = document.getElementById(".unidadeA__fechar");
-const btnAbrirEscolaB = document.getElementById(".unidadeB__abrir");
-const btnFecharEscolaB = document.getElementById(".unidadeB__fechar");
+/* ===== ADICIONAR EVENTOS PARA OS BOTÕES ===== */
+btnAbrirEscolaA.addEventListener("click", () => {
+  if (escolaA) {
+    escolaA.abrirEscola();
+  } else {
+    mensagemA.textContent = "A escola A ainda não foi criada.";
+  }
+});
 
+btnFecharEscolaA.addEventListener("click", () => {
+  if (escolaA) {
+    escolaA.fecharEscola();
+  } else {
+    mensagemA.textContent = "A escola A ainda não foi criada.";
+  }
+});
 
-
-
-
+// Adicione eventos para os botões de abrir e fechar a escola B, se necessário
 
 /* 🚨NÃO ALTERAR A CLASSE 🚨 */
 
@@ -49,30 +98,9 @@ class Senai {
     this.statusFuncionamento = false;
   }
 
-
   /* 🚨NÃO ALTERAR A CLASSE 🚨 */
 
-
-
   /* SUGESTÃO DE LÓGICA PARA O DESENVOLVIMENTO */
-
-
-
-
-
-
-  /* ===== FUNÇÃO DE VALIDAÇÃO ===== */
-  validar() {
-    if (isNaN(inputCodigoA, inputCidadeA, inputAnoA, inputCursosA) || isNaN(inputCodigoB, inputCidadeB, inputAnoB, inputCursosB)) {
-      relatorio.style.display = "flex"
-      relatorio.innerHTML =
-        `
-    <p> Preencha todos os campos para criar a escola. </p>
-    
-    `;
-    };
-  };
-
 
   /* ===== ABRIR ESCOLA ===== */
   abrirEscola() {
@@ -85,7 +113,6 @@ class Senai {
     }
   }
 
-
   /* ===== FECHAR ESCOLA ===== */
   fecharEscola() {
     const mensagem = document.getElementById("mensagem");
@@ -96,15 +123,13 @@ class Senai {
       mensagem.textContent = "A escola já está fechada!";
     }
   }
-}
 
-/* ===== RELATÓRIO DE COMPARAÇÃO ===== */
+  /* ===== RELATÓRIO DE COMPARAÇÃO ===== */
 
-
-/* ===== NOVA CONSULTA ===== */
-  consulta(){
+  /* ===== NOVA CONSULTA ===== */
+  consulta() {
     relatorio.style.display = "none";
-    
+
     inputCodigoA.value = "";
     inputCidadeA.value = "";
     inputAnoA.value = "";
@@ -114,6 +139,6 @@ class Senai {
     inputCidadeB.value = "";
     inputAnoB.value = "";
     inputCursosB.value = "";
-  };
-
+  }
+}
 
