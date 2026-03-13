@@ -8,6 +8,14 @@ const inputCodigoB = document.querySelector(".unidade__input unidadeB__codigo");
 const inputAnoConstrucaoB = document.querySelector(".unidade__input unidadeB__ano");
 const inputCursoB = document.querySelector(".unidade__input unidadeB__cursos");
 
+
+/* ===== INSTANCIAR ESCOLA A ===== */
+const escolaA = new Senai(inputCodigoA, inputCidadeA, inputAnoConstrucaoA, inputCursosA)
+
+/* ===== INSTANCIAR ESCOLA B ===== */
+const escolaB = new Senai(inputCodigoB, inputCidadeB, inputAnoConstrucaoB, inputCursoB)
+
+
 /* 🚨NÃO ALTERAR A CLASSE 🚨 */
 
 class Senai {
@@ -44,13 +52,10 @@ class Senai {
 /* ===== FUNÇÃO DE VALIDAÇÃO ===== */
 
 
-/* ===== INSTANCIAR ESCOLA A ===== */
-  criarEscolaA() {}
 
 
 
-/* ===== INSTANCIAR ESCOLA B ===== */
-  criarEscolaB() {}
+
 
 
 /* ===== ABRIR ESCOLA ===== */
