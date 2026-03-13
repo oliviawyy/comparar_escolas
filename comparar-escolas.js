@@ -17,6 +17,16 @@ const escolaA = new Senai(inputCodigoA, inputCidadeA, inputAnoA, inputCursosA)
 /* ===== INSTANCIAR ESCOLA B ===== */
 const escolaB = new Senai(inputCodigoB, inputCidadeB, inputAnoB, inputCursosB)
 
+// botoes
+const btnAbrirEscolaA = document.getElementById(".unidadeA__abrir");
+const btnFecharEscolaA = document.getElementById(".unidadeA__fechar");
+const btnAbrirEscolaB = document.getElementById(".unidadeB__abrir");
+const btnFecharEscolaB = document.getElementById(".unidadeB__fechar");
+
+
+
+
+
 
 /* 🚨NÃO ALTERAR A CLASSE 🚨 */
 
@@ -40,56 +50,70 @@ class Senai {
   }
 
 
-/* 🚨NÃO ALTERAR A CLASSE 🚨 */
+  /* 🚨NÃO ALTERAR A CLASSE 🚨 */
 
 
 
-/* SUGESTÃO DE LÓGICA PARA O DESENVOLVIMENTO */
+  /* SUGESTÃO DE LÓGICA PARA O DESENVOLVIMENTO */
 
 
 
 
 
-/* ===== FUNÇÃO DE VALIDAÇÃO ===== */
-validar(){
-  if (isNaN(inputCodigoA, inputCidadeA, inputAnoA, inputCursosA) || isNaN(inputCodigoB, inputCidadeB, inputAnoB, inputCursosB)) {
-    relatorio.style.display = "flex"
-    relatorio.innerHTML =
-    `
+
+  /* ===== FUNÇÃO DE VALIDAÇÃO ===== */
+  validar() {
+    if (isNaN(inputCodigoA, inputCidadeA, inputAnoA, inputCursosA) || isNaN(inputCodigoB, inputCidadeB, inputAnoB, inputCursosB)) {
+      relatorio.style.display = "flex"
+      relatorio.innerHTML =
+        `
     <p> Preencha todos os campos para criar a escola. </p>
     
     `;
+    };
   };
-};
 
 
-/* ===== ABRIR ESCOLA ===== */
+  /* ===== ABRIR ESCOLA ===== */
   abrirEscola() {
-      const mensagem = document.getElementById("mensagem"); 
-      if (this.statusFuncionamento === false) {
-        this.statusFuncionamento = true;
-        mensagem.textContent = `A escola do SENAI ${this.cidade} agora está aberta! Bem-vindo(a)!`;
-      } else {
-        mensagem.textContent = "A escola já está aberta!";
-      }
+    const mensagem = document.getElementById("mensagem");
+    if (this.statusFuncionamento === false) {
+      this.statusFuncionamento = true;
+      mensagem.textContent = `A escola do SENAI ${this.cidade} agora está aberta! Bem-vindo(a)!`;
+    } else {
+      mensagem.textContent = "A escola já está aberta!";
     }
+  }
 
-    
+
   /* ===== FECHAR ESCOLA ===== */
   fecharEscola() {
-      const mensagem = document.getElementById("mensagem"); 
-      if (this.statusFuncionamento === true) {
-        this.statusFuncionamento = false;
-        mensagem.textContent = `A escola do SENAI ${this.cidade} agora está fechada! As atividades foram encerradas!`;
-      } else {
-        mensagem.textContent = "A escola já está fechada!";
-      }
-}
+    const mensagem = document.getElementById("mensagem");
+    if (this.statusFuncionamento === true) {
+      this.statusFuncionamento = false;
+      mensagem.textContent = `A escola do SENAI ${this.cidade} agora está fechada! As atividades foram encerradas!`;
+    } else {
+      mensagem.textContent = "A escola já está fechada!";
+    }
+  }
 }
 
 /* ===== RELATÓRIO DE COMPARAÇÃO ===== */
 
 
 /* ===== NOVA CONSULTA ===== */
+  consulta(){
+    relatorio.style.display = "none";
+    
+    inputCodigoA.value = "";
+    inputCidadeA.value = "";
+    inputAnoA.value = "";
+    inputCursosA.value = "";
+
+    inputCodigoB.value = "";
+    inputCidadeB.value = "";
+    inputAnoB.value = "";
+    inputCursosB.value = "";
+  };
 
 
